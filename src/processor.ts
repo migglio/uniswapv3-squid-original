@@ -23,9 +23,12 @@ import * as positionsAbi from "./abi/NonfungiblePositionManager";
 const poolsMetadata = JSON.parse(fs.readFileSync("./assets/pools.json", "utf-8")) as { height: number, pools: string[] }
 
 export const processor = new EvmBatchProcessor()
-  .setDataSource({
-    archive: lookupArchive("eth-mainnet"),
-    chain: assertNotNull(process.env.RPC_ETH_HTTP, "Please provide an Ethereum RPC endpoint at RPC_ETH_HTTP"),
+  .setRpcEndpoint({
+    url: assertNotNull(
+      process.env.RPC_ETH_HTTP,
+      "Please provide an Ethereum RPC endpoint at RPC_ETH_HTTP"
+    ),
+    rateLimit: (process.env.RPC_RATE_LIMIT || 10) as number,
   })
   .setFinalityConfirmation(75)
   .addLog({
