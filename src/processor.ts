@@ -80,7 +80,10 @@ export const processor = new EvmBatchProcessor()
   .setBlockRange({
     from: FACTORY_DEPLOYED_AT,
   });
-
+  
+if(process.env.GATEWAY_URL && process.env.GATEWAY_URL.length > 0) {
+  processor.setGateway(process.env.GATEWAY_URL)
+}
 export type Fields = EvmBatchProcessorFields<typeof processor>;
 export type Block = BlockHeader<Fields>;
 export type Log = _Log<Fields>;
