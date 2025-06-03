@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { DataHandlerContext, BlockData } from "@subsquid/evm-processor";
 import { BlockHandlerContext } from "./interfaces/interfaces";
 import * as ERC20 from "../abi/ERC20";

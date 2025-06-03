@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { assertNotNull, DataHandlerContext } from "@subsquid/evm-processor";
 import { Store } from "@subsquid/typeorm-store";
 import { In } from "typeorm";

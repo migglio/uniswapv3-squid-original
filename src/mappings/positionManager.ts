@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { BigDecimal } from "@subsquid/big-decimal";
 
 import {

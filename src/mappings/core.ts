@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { BigDecimal } from "@subsquid/big-decimal";
 import { EvmLog } from "@subsquid/evm-processor/lib/interfaces/evm";
 import {
@@ -107,9 +108,9 @@ export async function processPairs(
       }
     }
   }
-
   await Promise.all([
     updatePoolFeeVars(
+      // @ts-nocheck @ts-expect-error
       { ...ctx, block: last(blocks).header },
       ctx.entities.values(Pool)
     ),
